@@ -28,10 +28,95 @@ add_library(${CMAKE_PROJECT_NAME} SHARED
         # List C/C++ source files with relative paths to this CMakeLists.txt.
         player.cpp)
 
+
+
+# FFmpeg include headers
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
+# library so files
+add_library(
+        avcodec-lib
+        SHARED
+        IMPORTED
+)
+
+set_target_properties(
+        avcodec-lib
+        PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_SOURCE_DIR}/jniLibs/arm64-v8a/libavcodec.so
+)
+
+# filter-library, not used yet
+add_library(
+        avfilter-lib
+        SHARED
+        IMPORTED
+)
+set_target_properties(
+        avfilter-lib
+        PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_SOURCE_DIR}/jniLibs/arm64-v8a/libavfilter.so
+)
+
+# file format library, needed by most libraries
+add_library(
+        avformat-lib
+        SHARED
+        IMPORTED
+)
+set_target_properties(
+        avformat-lib
+        PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_SOURCE_DIR}/jniLibs/arm64-v8a/libavformat.so
+)
+
+# utility library, depended by swresample-lib
+add_library(
+        avutil-lib
+        SHARED
+        IMPORTED
+)
+set_target_properties(
+        avutil-lib
+        PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_SOURCE_DIR}/jniLibs/arm64-v8a/libavutil.so
+)
+
+# resample library, using for audio transform depended by avcodec-lib
+add_library(
+        swresample-lib
+        SHARED
+        IMPORTED
+)
+set_target_properties(
+        swresample-lib
+        PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_SOURCE_DIR}/jniLibs/arm64-v8a/libswresample.so
+)
+
+# video format transform, depended by avfilter-lib
+add_library(
+        swscale-lib
+        SHARED
+        IMPORTED
+)
+set_target_properties(
+        swscale-lib
+        PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_SOURCE_DIR}/jniLibs/arm64-v8a/libswscale.so
+)
+
 # Specifies libraries CMake should link to your target library. You
 # can link libraries from various origins, such as libraries defined in this
 # build script, prebuilt third-party libraries, or Android system libraries.
 target_link_libraries(${CMAKE_PROJECT_NAME}
         # List libraries link to the target library
         android
-        log)
+        log
+        avcodec-lib
+        avfilter-lib
+        avformat-lib
+        avutil-lib
+        swresample-lib
+        swscale-lib
+)
