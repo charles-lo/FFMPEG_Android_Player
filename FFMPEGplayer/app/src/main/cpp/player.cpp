@@ -16,10 +16,10 @@ extern "C" {
 }
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_charles_ffmpegplayer_MainActivity_stringFromJNI(
+Java_com_charles_ffmpegplayer_FFMpegPlayer_stringFromJNI(
         JNIEnv* env,
         jobject /* this */) {
-    std::string hello = "Hello from C++ 002";
+    std::string hello = "Hello from C++ 003";
     return env->NewStringUTF(hello.c_str());
 }
 
@@ -32,14 +32,14 @@ Java_com_charles_ffmpegplayer_MainActivity_stringFromJNI(
  */
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_charles_ffmpegplayer_MainActivity_playVideo(JNIEnv *env, jobject instance, jstring path_, jobject surface) {
+Java_com_charles_ffmpegplayer_FFMpegPlayer_playVideo(JNIEnv *env, jobject instance, jstring path_, jobject surface) {
     // save the result
     int result;
     // R1 Java String -> C String
     const char *path = env->GetStringUTFChars(path_, 0);
     // regiister FFmpeg component
     // av_register_all();  // not necessary after version 4.0
-    // R2 initialize AVFormatContext 上下文
+    // R2 initialize AVFormatContext
     AVFormatContext *format_context = avformat_alloc_context();
     // open video file
     result = avformat_open_input(&format_context, path, nullptr, nullptr);
