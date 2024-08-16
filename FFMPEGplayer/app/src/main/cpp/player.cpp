@@ -37,8 +37,11 @@ Java_com_charles_ffmpegplayer_FFMpegPlayer_playVideo(JNIEnv *env, jobject instan
     int result;
     // R1 Java String -> C String
     const char *path = env->GetStringUTFChars(path_, 0);
+
+
     // regiister FFmpeg component
     // av_register_all();  // not necessary after version 4.0
+    avformat_network_init();
     // R2 initialize AVFormatContext
     AVFormatContext *format_context = avformat_alloc_context();
     // open video file
