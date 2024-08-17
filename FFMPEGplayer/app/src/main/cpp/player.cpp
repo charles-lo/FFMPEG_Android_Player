@@ -179,7 +179,7 @@ Java_com_charles_ffmpegplayer_FFMpegPlayer_playVideo(JNIEnv *env, jobject instan
     // release R4
     ANativeWindow_release(native_window);
     // release R3
-    avcodec_close(video_codec_context);
+    avcodec_free_context(&video_codec_context);
     // release R2
     avformat_close_input(&format_context);
     // release R1
