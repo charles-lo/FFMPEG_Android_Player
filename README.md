@@ -17,3 +17,8 @@ The version of FFMPEG I build-in  is 7.0.2 .
     initialize the project
     Integrate arm64-v8a so library
     implement a simple java GUI for testing
+2024-08-17
+
+    suppoert more ABI : x86_64  
+`<link>` : <https://youtu.be/0unWftmnAwY>
+	

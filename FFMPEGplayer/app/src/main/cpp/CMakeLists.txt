@@ -43,7 +43,7 @@ add_library(
 set_target_properties(
         avcodec-lib
         PROPERTIES IMPORTED_LOCATION
-        ${CMAKE_SOURCE_DIR}/jniLibs/arm64-v8a/libavcodec.so
+        ${CMAKE_SOURCE_DIR}/jniLibs/${ANDROID_ABI}/libavcodec.so
 )
 
 # filter-library, not used yet
@@ -55,7 +55,7 @@ add_library(
 set_target_properties(
         avfilter-lib
         PROPERTIES IMPORTED_LOCATION
-        ${CMAKE_SOURCE_DIR}/jniLibs/arm64-v8a/libavfilter.so
+        ${CMAKE_SOURCE_DIR}/jniLibs/${ANDROID_ABI}/libavfilter.so
 )
 
 # file format library, needed by most libraries
@@ -67,7 +67,7 @@ add_library(
 set_target_properties(
         avformat-lib
         PROPERTIES IMPORTED_LOCATION
-        ${CMAKE_SOURCE_DIR}/jniLibs/arm64-v8a/libavformat.so
+        ${CMAKE_SOURCE_DIR}/jniLibs/${ANDROID_ABI}/libavformat.so
 )
 
 # utility library, depended by swresample-lib
@@ -79,7 +79,7 @@ add_library(
 set_target_properties(
         avutil-lib
         PROPERTIES IMPORTED_LOCATION
-        ${CMAKE_SOURCE_DIR}/jniLibs/arm64-v8a/libavutil.so
+        ${CMAKE_SOURCE_DIR}/jniLibs/${ANDROID_ABI}/libavutil.so
 )
 
 # resample library, using for audio transform depended by avcodec-lib
@@ -91,7 +91,7 @@ add_library(
 set_target_properties(
         swresample-lib
         PROPERTIES IMPORTED_LOCATION
-        ${CMAKE_SOURCE_DIR}/jniLibs/arm64-v8a/libswresample.so
+        ${CMAKE_SOURCE_DIR}/jniLibs/${ANDROID_ABI}/libswresample.so
 )
 
 # video format transform, depended by avfilter-lib
@@ -103,7 +103,7 @@ add_library(
 set_target_properties(
         swscale-lib
         PROPERTIES IMPORTED_LOCATION
-        ${CMAKE_SOURCE_DIR}/jniLibs/arm64-v8a/libswscale.so
+        ${CMAKE_SOURCE_DIR}/jniLibs/${ANDROID_ABI}/libswscale.so
 )
 
 # Specifies libraries CMake should link to your target library. You
