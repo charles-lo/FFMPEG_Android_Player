@@ -21,4 +21,9 @@ The version of FFMPEG I build-in  is 7.0.2 .
 
     suppoert more ABI : x86_64  
 `<link>` : <https://youtu.be/0unWftmnAwY>
+
+2024-08-21
+
+    Integrate audio syncronization
+`<link>` : <https://youtu.be/nHkGwTjP-YA>
 	

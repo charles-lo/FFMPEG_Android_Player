@@ -4,10 +4,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <SurfaceView
-        android:id="@+id/surface_view"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="250dp">
+
+        <SurfaceView
+            android:id="@+id/surface_view"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_alignParentBottom="true"
+            android:background="#50000000">
+
+            <TextView
+                android:id="@+id/current_time_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:text="00:00"
+                />
+
+            <TextView
+                android:id="@+id/total_time_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:gravity="right"
+                android:text="00:00"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/btn_play_video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:visibility="gone"
+        android:text="Play Just Video"
+        android:onClick="playVideo"
+        />
+
+    <Button
+        android:id="@+id/btn_play_audio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:text="Play Just Audio"
+        android:onClick="playAudio"
         />
 
     <Button
@@ -15,8 +74,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_margin="10dp"
         android:text="Play"
         android:onClick="play"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Seek To 590 Second"
+        android:onClick="seekTo"
         />
 
 </LinearLayout>
